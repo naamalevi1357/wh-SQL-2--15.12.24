@@ -40,6 +40,16 @@ SELECT * FROM shopping WHERE maavar BETWEEN 3 AND 5
 --the last operation (you can see this on the AND operation) from the maavar column that is greater than the number 5.
 -- And in the second query it indicates bring me from the whole table from the maavar column between the number 3 and 5.
 
+-- 12
+
+SELECT * FROM shopping ORDER BY maavar
+SELECT * FROM shopping ORDER BY maavar DESC
+ 
+-- The order by query sorts columns from small to large, you can sort even after creating a group.
+--And if we want from the largest to the smallest, we specify desc
+--Example 1 to sort the maavar column (which automatically starts from small to large)
+--In example 2 to sort the maavar column from largest to smallest, we will know this because we put the word DESC at the end of the sentence
+  
 
 -- 13
 CREATE TABLE books (id INTEGER PRIMARY KEY, name TEXT);
@@ -63,3 +73,21 @@ SELECT MIN(amount) from shopping
 --Query 2 brings me the maximum from the amount column 
 --Query 3 brings me the average from the amount column 
 --Query 4 brings me the minimum from the amount column.
+
+-- 15
+
+INSERT INTO shopping VALUES (6, 'Onions', 3, 6);
+INSERT INTO shopping VALUES (7, 'Orio', 1, 8);
+Select maavar, COUNT(*)FROM shopping GROUP BY maavar
+
+--A GROUP BY query creates a group of data \ values ​​for us, it can be done on one column or on several positions from a table, 
+--And in this example we added 2 lines 
+--And then we asked for the creation of a group on the maavar column that would also calculate the amount, so we specified count.
+
+-- 16
+
+SELECT id AS "SECRET", name, amount, maavar FROM shopping
+
+--An AS query is a query that performs an exchange of changing the name of the display only, (referring to the heading of columns), 
+--I mentioned to him that the name of the column (display) of ID will be replaced by the name of "SECRET"
+--And bring me all the other columns from the shopping table
